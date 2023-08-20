@@ -4,8 +4,8 @@ import featuredImg from "../../../assets/home/featured.jpg";
 
 const FeaturedSpecial = () => {
   return (
-    <div
-      className="hero md:h-[500px] bg-fixed"
+    <section
+      className="hero mt-24 bg-fixed"
       style={{
         backgroundImage:
           "url(https://images.pexels.com/photos/2403392/pexels-photo-2403392.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load)",
@@ -43,7 +43,7 @@ const FeaturedSpecial = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

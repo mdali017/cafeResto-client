@@ -20,7 +20,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="mt-10 my-10">
+    <section className="mb-20">
       <SectionTitle
         subTitle="What Our Client Say"
         title="Testimonials"

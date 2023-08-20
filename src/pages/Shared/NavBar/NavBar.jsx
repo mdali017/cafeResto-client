@@ -27,7 +27,7 @@ const NavBar = () => {
   return (
     <div
       className={`${
-        bg ? "bg-gray-500 h-20" : "h-24 bg-gray-300 bg-opacity-30"
+        bg ? "bg-gray-500 h-20 rounded-b-lg " : "h-24 bg-gray-300 bg-opacity-30"
       } navbar fixed top-0 z-10 transition-all  duration-300 max-w-screen-xl mx-auto text-white`}
     >
       <div className="navbar-start">
