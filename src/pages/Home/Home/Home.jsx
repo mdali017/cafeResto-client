@@ -7,6 +7,7 @@ import FeaturedSpecial from "../FeaturedSpecial/FeaturedSpecial";
 import CallSection from "../CallSection/CallSection";
 import Testimonials from "../Testimonials/Testimonials";
 import { Helmet } from "react-helmet-async";
+import ChefRecommends from "../ChefRecommends/ChefRecommends";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Featured></Featured>
       <PopularMenu></PopularMenu>
       <CallSection></CallSection>
+      <ChefRecommends></ChefRecommends>
       <FeaturedSpecial></FeaturedSpecial>
       <Testimonials></Testimonials>
     </div>
