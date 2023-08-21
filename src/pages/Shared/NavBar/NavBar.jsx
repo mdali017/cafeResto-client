@@ -1,8 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const NavBar = () => {
   const [bg, setBg] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -22,8 +32,22 @@ const NavBar = () => {
         <Link to="/order/salads">Order Food</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/secret">Secret</Link>
       </li>
+
+      {user ? (
+        <>
+          <li>
+            <button onClick={handleLogOut}>Log Out</button>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
     </>
   );
 
