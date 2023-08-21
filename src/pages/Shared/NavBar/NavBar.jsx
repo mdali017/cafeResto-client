@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { FaBeer, FaCartPlus } from "react-icons/fa";
+import useCart from "../../../hooks/useCart";
 
 const NavBar = () => {
   const [bg, setBg] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const [carts] = useCart();
 
   const handleLogOut = () => {
     logOut()
@@ -34,6 +37,16 @@ const NavBar = () => {
       <li>
         <Link to="/secret">Secret</Link>
       </li>
+      <div to="/dashboard" className="indicator mr-3">
+        <span className="indicator-item badge badge-secondary">
+          {carts.length || 0}+
+        </span>
+        <li>
+          <Link to="/dashboard">
+            <FaCartPlus />
+          </Link>
+        </li>
+      </div>
 
       {user ? (
         <>
