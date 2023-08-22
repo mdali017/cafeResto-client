@@ -8,8 +8,10 @@ import {
   FaShoppingCart,
   FaWallet,
 } from "react-icons/fa";
+import useCart from "../hooks/useCart";
 
 const Dashboard = () => {
+  const [carts] = useCart();
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -45,6 +47,9 @@ const Dashboard = () => {
           <li>
             <Link to="/dashboard/my-cart">
               <FaShoppingCart /> My Cart
+              <span className="indicator-item badge badge-secondary">
+                {carts.length || 0}+
+              </span>
             </Link>
           </li>
           <div className="divider"></div>

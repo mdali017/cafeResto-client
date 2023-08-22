@@ -42,7 +42,7 @@ const NavBar = () => {
           {carts.length || 0}+
         </span>
         <li>
-          <Link to="/dashboard">
+          <Link to="/dashboard/my-cart">
             <FaCartPlus />
           </Link>
         </li>
