@@ -9,7 +9,7 @@ const FoodCard = ({ item }) => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const [refetch] = useCart();
+  const [, refetch] = useCart();
 
   const handleAddToCart = (item) => {
     console.log(item);

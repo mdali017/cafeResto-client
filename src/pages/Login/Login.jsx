@@ -9,6 +9,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -122,13 +123,6 @@ const Login = () => {
                   placeholder="Type The Captcha Above"
                   className="input input-bordered"
                 />
-                {/* <button
-                  // onClick={handleValidateCaptcha}
-
-                  className="btn btn-outline btn-xs"
-                >
-                  Valided Captcha
-                </button> */}
               </div>
               <div className="form-control mt-6">
                 <button
@@ -151,6 +145,7 @@ const Login = () => {
                 </Link>
               </div>
             </label>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

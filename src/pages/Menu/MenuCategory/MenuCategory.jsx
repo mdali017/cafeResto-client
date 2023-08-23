@@ -17,7 +17,7 @@ const MenuCategory = ({ items, title, coverImg }) => {
           to={`/order/${title ? title : title}`}
           className="btn btn-outline  border-0 border-b-4"
         >
-          {title ? title : "See More"}
+          {title ? title + `...` : "See More"}
         </Link>
       </div>
     </div>

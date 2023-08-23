@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -16,7 +17,6 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     createUser(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
@@ -24,15 +24,28 @@ const SignUp = () => {
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
             console.log("user profile info updated");
-            reset();
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "User Created Successfully",
-              showConfirmButton: false,
-              timer: 1500,
-            });
-            navigate("/");
+            const saveUser = { name: data.name, email: data.email };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(saveUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.insertedId) {
+                  reset();
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "User Created Successfully",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                  navigate("/");
+                }
+              });
           })
           .catch((error) => console.log(error));
       })
@@ -174,6 +187,7 @@ const SignUp = () => {
                 </Link>
               </div>
             </label>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
