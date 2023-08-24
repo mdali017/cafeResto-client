@@ -46,12 +46,12 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard/my-cart">
+                <Link to="/dashboard/add-item">
                   <FaUtensils /> Add Items
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard/my-cart">
+                <Link to="/dashboard/manage-items">
                   <FaChartBar /> Manage Items
                 </Link>
               </li>
