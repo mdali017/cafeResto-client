@@ -51,7 +51,7 @@ const NavBar = () => {
       {user ? (
         <>
           <li>
-            <button onClick={handleLogOut}>Log Out</button>
+            <Link onClick={handleLogOut}>Log Out</Link>
           </li>
         </>
       ) : (
