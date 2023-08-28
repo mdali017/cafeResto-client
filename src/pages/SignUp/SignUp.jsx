@@ -5,6 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import img from "../../assets/others/authentication2.png";
 
 const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -64,28 +65,22 @@ const SignUp = () => {
       <Helmet>
         <title>CafeResto | Sign Up</title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Sign Up now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+      <div className="bg-[url(../pages/assets/authentication/authentication.png)]  mx-auto drop-shadow-2xl border-8 ">
+        <div className="md:flex justify-center items-center md:p-20">
+          <div className="w-full md:w-1/2">
+            <img className="md:h-[800px]" src={img} alt="" />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
+          <div className="md:w-1/2 m-4 md:ml-8">
+            <form onSubmit={handleSubmit(onSubmit)} className="md:p-10 border">
+              <h1 className="text-center font-bold text-xl">Sign Up</h1>
+              <div className="form-control ">
+                <label>Name</label>
                 <input
                   type="text"
                   name="name"
                   {...register("name", { required: true })}
+                  className="rounded  "
                   placeholder="Enter Your Full Name"
-                  className="input input-bordered"
                 />
                 {errors.name && (
                   <span className="text-red-700 font-semibold">
@@ -93,33 +88,28 @@ const SignUp = () => {
                   </span>
                 )}
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Photo URL</span>
-                </label>
+              <div className="form-control ">
+                <label>Photo URL</label>
                 <input
                   type="text"
                   name="photoURL"
                   {...register("photoURL", { required: true })}
+                  className="rounded  "
                   placeholder="Photo URL"
-                  className="input input-bordered"
                 />
-                {errors.name && (
+                {errors.photoURL && (
                   <span className="text-red-700 font-semibold">
-                    Photo URL is required
+                    Name is required
                   </span>
                 )}
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
+              <div className="form-control ">
+                <label>Email</label>
                 <input
                   type="email"
                   name="email"
                   {...register("email", { required: true })}
-                  placeholder="email"
-                  className="input input-bordered"
+                  placeholder="Enter Your Email"
                 />
                 {errors.email && (
                   <span className="text-red-700 font-semibold">
@@ -127,10 +117,8 @@ const SignUp = () => {
                   </span>
                 )}
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
+              <div className="form-control ">
+                <label>Password</label>
                 <input
                   type="password"
                   name="password"
@@ -140,8 +128,7 @@ const SignUp = () => {
                     maxLength: 20,
                     pattern: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]/,
                   })}
-                  placeholder="password"
-                  className="input input-bordered"
+                  placeholder="Password"
                 />
                 {errors.password?.type === "required" && (
                   <p className="text-red-900">Password is required</p>
@@ -163,31 +150,28 @@ const SignUp = () => {
                     Password must have one uppercase one lowercase one number
                   </p>
                 )}
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
-
-              <div className="form-control mt-6">
-                <button type="submit" className="btn btn-primary">
+              <div className="form-control my-3">
+                <button
+                  type="submit"
+                  className="border btn btn-primary bg-gray-600 text-white py-3 rounded-lg"
+                >
                   Sign Up
                 </button>
               </div>
-            </form>
-            <label className="mx-auto pb-5">
-              <div className="label-text-alt link link-hover">
-                Already Have An Account? Please
-                <Link
-                  to="/login"
-                  className="text-blue-500 font-semibold text-[14px] ml-2"
-                >
-                  Log In
-                </Link>
+              <div>
+                <h3 className="text-center">
+                  Already Have An Account?
+                  <Link to="/login" className="text-blue-600">
+                    Please Login
+                  </Link>
+                  <br /> <span>or Sign In With</span>
+                </h3>
               </div>
-            </label>
-            <SocialLogin></SocialLogin>
+              <div className="flex justify-center gap-4 mt-6">
+                <SocialLogin></SocialLogin>
+              </div>
+            </form>
           </div>
         </div>
       </div>

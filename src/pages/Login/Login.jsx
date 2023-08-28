@@ -10,6 +10,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import { FaBeer, FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
+import img from "../../assets/others/authentication1.png";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -72,44 +74,31 @@ const Login = () => {
       <Helmet>
         <title>CafeResto | Login</title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+      <div className="bg-[url(../pages/assets/authentication/authentication.png)]  mx-auto drop-shadow-2xl border-8 ">
+        <div className="md:flex justify-center items-center md:p-20">
+          <div className="w-full md:w-1/2">
+            <img className="md:h-[800px]" src={img} alt="" />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleLogin} className="card-body">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
+          <div className="md:w-1/2 m-4 md:ml-8">
+            <form onSubmit={handleLogin} className="md:p-10 border">
+              <h1 className="text-center font-bold text-xl">Login</h1>
+              <div className="form-control ">
+                <label>Email</label>
                 <input
                   type="email"
                   name="email"
-                  placeholder="email"
-                  className="input input-bordered"
+                  className="rounded  "
+                  placeholder="Enter Your Email"
                 />
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
+              <div className="form-control ">
+                <label>Password</label>
                 <input
                   type="password"
                   name="password"
-                  placeholder="password"
-                  className="input input-bordered"
+                  className="rounded   "
+                  placeholder="********"
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
               <div className="form-control">
                 <label className="label">
@@ -118,34 +107,33 @@ const Login = () => {
                 <input
                   type="text"
                   name="captcha"
-                  // ref={captchaRef}
                   onBlur={handleValidateCaptcha}
                   placeholder="Type The Captcha Above"
-                  className="input input-bordered"
+                  className="input input-bordered md:w-80"
                 />
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control my-3">
                 <button
-                  disabled={disabled}
                   type="submit"
-                  className="btn btn-primary"
+                  disabled={disabled}
+                  className="border btn btn-primary bg-gray-600 text-white py-3 rounded-lg"
                 >
-                  Login
+                  Sign In
                 </button>
               </div>
-            </form>
-            <label className="mx-auto pb-5">
-              <div to="/signup" className="label-text-alt link link-hover">
-                New Hare Awesome Restuarant? Please
-                <Link
-                  to="/signup"
-                  className="text-blue-500 font-semibold text-[14px] ml-2"
-                >
-                  Sign Up
-                </Link>
+              <div>
+                <h3 className="text-center">
+                  New Here?
+                  <Link to="/signup" className="text-blue-600">
+                    Create An Account
+                  </Link>
+                  <br /> <span>or Sign In With</span>
+                </h3>
               </div>
-            </label>
-            <SocialLogin></SocialLogin>
+              <div className="flex justify-center gap-4 mt-6">
+                <SocialLogin></SocialLogin>
+              </div>
+            </form>
           </div>
         </div>
       </div>

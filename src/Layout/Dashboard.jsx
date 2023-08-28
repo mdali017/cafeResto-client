@@ -2,7 +2,6 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import {
   FaBars,
-  FaBeer,
   FaBook,
   FaCalendarAlt,
   FaChartBar,
@@ -41,7 +40,7 @@ const Dashboard = () => {
           {isAdmin ? (
             <>
               <li>
-                <Link to="/dashboard/my-cart">
+                <Link to="/dashboard/admin-home">
                   <FaHome /> Admin Home
                 </Link>
               </li>
@@ -69,7 +68,7 @@ const Dashboard = () => {
           ) : (
             <>
               <li>
-                <Link to="/dashboard/my-cart">
+                <Link to="/dashboard/user-home">
                   <FaHome /> User Home
                 </Link>
               </li>
